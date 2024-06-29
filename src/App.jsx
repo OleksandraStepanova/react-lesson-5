@@ -3,6 +3,7 @@ import { lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getBasedCurrency } from 'reduxState/currency/operations';
+import { setDefaultCurrency } from 'reduxState/currency/slice';
 
 const Home = lazy(() => import('./pages/Home'));
 const Rates = lazy(()=>import('./pages/Rates'))
@@ -22,7 +23,8 @@ const success = async(pos) => {
   dispatch(getBasedCurrency(crd));  
 }
 
-function error(err) {
+    function error(err) {
+      dispatch(setDefaultCurrency('USD'));
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 

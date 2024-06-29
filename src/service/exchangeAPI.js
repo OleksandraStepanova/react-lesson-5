@@ -2,14 +2,14 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: 'https://api.apilayer.com/exchangerates_data/',
-  headers: { apikey: '' },
+  headers: { apikey: 'X6VuiOtBh8m2XV5qwkNqH0Dz1GXQVQR4' },
 });
 
-export const exchangeCurrency = async credentials => {
+export const exchangeCurrency = async exchangeRequest => {
   const {
     data: { query, info, result },
   } = await instance.get(`/convert`, {
-    params: credentials,
+    params: exchangeRequest,
   });
   return { ...query, rate: info.rate, result };
 };

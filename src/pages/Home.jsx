@@ -1,4 +1,4 @@
-import { Container, Heading, Section } from 'components';
+import { Container, ExchangeForm, Heading, Section } from 'components';
 import { useSelector } from 'react-redux';
 import { selectBasedCurrency } from 'reduxState/currency/slice';
 
@@ -11,7 +11,9 @@ const Home = () => {
   return (
     <Section>
       <Container>
+        <ExchangeForm />
         <Heading info title="What currencies do you want to exchange?🙂" />
+        
 
         {isError && (
           <Heading
