@@ -1,7 +1,12 @@
 import { Container, Heading, Section } from 'components';
+import { useSelector } from 'react-redux';
+import { selectBasedCurrency } from 'reduxState/currency/slice';
 
 const Home = () => {
   const isError = false;
+  const value = useSelector(selectBasedCurrency);
+  console.log(value);
+
 
   return (
     <Section>
